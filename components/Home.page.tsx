@@ -1,4 +1,5 @@
-import { Separator } from "@/components/ui/separator"
+import { Separator } from "@/components/ui/separator";
+import Link from "next/link";
 
 export default function SeparatorDemo() {
     return (
@@ -11,9 +12,9 @@ export default function SeparatorDemo() {
             </div>
             <Separator className="my-4" />
             <div className="flex h-5 items-center space-x-4 text-sm">
-                <div>Kitchen</div>
+                <div><Link href="/kitchen">Kitchen Login</Link></div>
                 <Separator orientation="vertical" />
-                <div>Order</div>
+                <div><Link href="/order">Scan QR and Order</Link></div>
 
             </div>
         </div>
