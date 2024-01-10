@@ -1,8 +1,8 @@
-import Order from '@/components/Order.page';
+import OrderComponent from '@/components/Order.page';
 import Scanner from '@/components/Scanner.component';
 import { useState } from 'react'
 
-const order = () => {
+const Order = () => {
     const [data, setData] = useState<String | null>(null);
 
 
@@ -12,11 +12,11 @@ const order = () => {
                 !data ? (
                     <Scanner data={data} setData={setData} />
                 ) : (
-                    <Order table={data} />
+                    <OrderComponent table={data} />
                 )
             }
         </div>
     )
 }
 
-export default order;
+export default Order;
