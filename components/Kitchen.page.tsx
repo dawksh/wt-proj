@@ -18,6 +18,19 @@ const Kitchen = () => {
                 }
             ],
         },
+        {
+            table: "B-23",
+            order: [
+                {
+                    title: "Pasta",
+                    price: 130,
+                },
+                {
+                    'title': 'Burger',
+                    'price': 200
+                }
+            ],
+        },
     ];
     return (
         <div className="flex items-center justify-between p-8 flex-col">
