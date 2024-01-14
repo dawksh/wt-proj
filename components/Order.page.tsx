@@ -6,8 +6,9 @@ import {
     CarouselPrevious,
 } from "@/components/ui/carousel"
 import Item from "./Item.component"
+import { Order } from "@/lib/types"
 
-const items = [
+const items: Array<Order> = [
     {
         title: 'Chicken',
         price: 100

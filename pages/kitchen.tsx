@@ -1,9 +1,12 @@
 import React from 'react'
+import KitchenPage from "@/components/Kitchen.page";
 
-const kitchen = () => {
+const Kitchen = () => {
     return (
-        <div>kitchen</div>
+        <div>
+            <KitchenPage />
+        </div>
     )
 }
 
-export default kitchen;
+export default Kitchen;
