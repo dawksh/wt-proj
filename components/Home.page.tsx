@@ -15,7 +15,6 @@ export default function SeparatorDemo() {
                 <div><Link href="/kitchen">Kitchen Login</Link></div>
                 <Separator orientation="vertical" />
                 <div><Link href="/order">Scan QR and Order</Link></div>
-
             </div>
         </div>
     )
