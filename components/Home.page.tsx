@@ -20,8 +20,6 @@ export default function SeparatorDemo() {
                     </h1>
                     <div className="space-x-4">
                         <Link href="/">Home</Link>
-                        <Link href="/menu">Menu</Link>
-                        <Link href="/about">About</Link>
                     </div>
                 </nav>
             </div>
