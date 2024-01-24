@@ -36,7 +36,7 @@ export default function SeparatorDemo() {
 
                     <div className="flex items-center justify-center space-x-4">
                         <button className="px-4 py-2 text-white bg-blue-600 rounded-md hover:bg-blue-700">
-                            <Link href="/kitchen">Kitchen Login</Link>
+                            <Link href="/signin">Kitchen Login</Link>
                         </button>
                         <Separator orientation="vertical" />
                         <button className="px-4 py-2 text-white bg-green-600 rounded-md hover:bg-green-700">

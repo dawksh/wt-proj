@@ -6,7 +6,7 @@ interface IOrderItem {
   quantity: number;
 }
 
-interface IOrder extends Document {
+export interface IOrder extends Document {
   tableNumber: number;
   kitchen: string;
   items: IOrderItem[];
