@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import { ToastContainer } from 'react-toastify';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Link from 'next/link';
 
 const SignIn = () => {
     const [username, setUsername] = useState('');
@@ -53,20 +54,20 @@ const SignIn = () => {
                             Sign In
                         </button>
                     </div>
-                    </form>
-                    <div className="mt-6 text-center">
-                        <p className="text-sm text-gray-600">
-                        Don't have an account? 
-                        <a href="/signup" className="font-medium text-indigo-600 hover:text-indigo-500">
-                        Sign Up
-                        </a>
-                        </p>
-                    </div>
+                </form>
+                <div className="mt-6 text-center">
+                    <p className="text-sm text-gray-600">
+                        Don&apos;t have an account?
+                        <Link href="/signup" className="font-medium text-indigo-600 hover:text-indigo-500">
+                            Sign Up
+                        </Link>
+                    </p>
                 </div>
-                <ToastContainer />
             </div>
-      );
-    };
+            <ToastContainer />
+        </div>
+    );
+};
 
 
 export default SignIn;
