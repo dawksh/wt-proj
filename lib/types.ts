@@ -1,7 +1,8 @@
 
 export type Order = {
     title: string,
-    price: Number
+    price: Number,
+    image?: string
 }
 
 export type KitchenOrderProps = {

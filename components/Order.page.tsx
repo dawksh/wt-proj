@@ -23,15 +23,18 @@ import { useState } from "react"
 const items: Array<Order> = [
     {
         title: 'Chicken',
-        price: 100
+        price: 100,
+        image: "https://i.imgur.com/pUWQRu8.jpeg"
     },
     {
         title: "Prawns",
-        price: 200
+        price: 200,
+        image: "https://i.imgur.com/mpsDXKd.jpeg"
     },
     {
-        title: "Fish",
-        price: 150
+        title: "Pasta",
+        price: 150,
+        image: "https://i.imgur.com/FJsDCOD.jpeg"
     }
 ]
 
@@ -78,7 +81,7 @@ const Order = ({ table }: { table: String }) => {
                     <CarouselContent>
                         {items.map((item, index) => (
                             <CarouselItem key={index}>
-                                <Item title={item.title} price={item.price} setOrder={setOrder} />
+                                <Item title={item.title} price={item.price} image={item.image || ""} setOrder={setOrder} />
                             </CarouselItem>
                         )
                         )}
