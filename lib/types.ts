@@ -1,12 +1,10 @@
 
 export type Order = {
     title: string,
-    price: Number,
-    image?: string
+    price: number,
+    image?: string,
+    table: string,
 }
 
-export type KitchenOrderProps = {
-    order: Array<Order>,
-    table: string
-}
+
 

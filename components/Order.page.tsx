@@ -19,26 +19,32 @@ import { Button } from "./ui/button"
 import Item from "./Item.component"
 import { Order } from "@/lib/types"
 import { useState } from "react"
+import axios from "axios"
+import { toast } from "react-toastify"
+import { useEffect } from "react"
 
 const items: Array<Order> = [
     {
         title: 'Chicken',
         price: 100,
-        image: "https://i.imgur.com/pUWQRu8.jpeg"
+        image: "https://i.imgur.com/pUWQRu8.jpeg",
+        table: "1"
     },
     {
         title: "Prawns",
         price: 200,
-        image: "https://i.imgur.com/mpsDXKd.jpeg"
+        image: "https://i.imgur.com/mpsDXKd.jpeg",
+        table: "1"
     },
     {
         title: "Pasta",
         price: 150,
-        image: "https://i.imgur.com/FJsDCOD.jpeg"
+        image: "https://i.imgur.com/FJsDCOD.jpeg",
+        table: "1"
     }
 ]
 
-const Order = ({ table }: { table: String }) => {
+const Order = ({ table }: { table: string }) => {
     const [order, setOrder] = useState<Array<Order>>([]);
     const renderCart = () => {
         const total = order.reduce((acc, curr) => acc + Number(curr.price), 0)
@@ -54,6 +60,17 @@ const Order = ({ table }: { table: String }) => {
         )
     }
 
+    const handleConfirm = async () => {
+        try {
+            console.log(order);
+          await axios.post('/api/orders', order); // Replace with your actual API endpoint
+          toast.success('Order confirmed');
+        } catch (error) {
+          console.error(error);
+          toast.error('An error occurred while confirming the order');
+        }
+      };
+
     return (
         <div className='p-4'>
             <div className="flex flex-row justify-between">
@@ -68,7 +85,7 @@ const Order = ({ table }: { table: String }) => {
                             {renderCart()}
                         </DrawerDescription>
                         <DrawerFooter>
-                            <Button>Confirm</Button>
+                            <Button onClick={handleConfirm}>Confirm</Button>
                             <DrawerClose>
                                 <Button variant="outline">Close</Button>
                             </DrawerClose>
@@ -81,7 +98,7 @@ const Order = ({ table }: { table: String }) => {
                     <CarouselContent>
                         {items.map((item, index) => (
                             <CarouselItem key={index}>
-                                <Item title={item.title} price={item.price} image={item.image || ""} setOrder={setOrder} />
+                                <Item title={item.title} price={item.price} image={item.image || ""} table={table} setOrder={setOrder} />
                             </CarouselItem>
                         )
                         )}

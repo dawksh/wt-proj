@@ -7,11 +7,13 @@ const Item = ({
     title,
     price,
     setOrder,
-    image
+    image,
+    table
 }: {
     title: string;
     price: Number;
     image: string;
+    table: string;
     setOrder: Dispatch<SetStateAction<Order[]>>;
 }) => {
     const [label, setLabel] = React.useState<String>("Add to cart");
@@ -31,7 +33,7 @@ const Item = ({
                 className="my-2 mb-8 w-32"
                 onClick={(e) => {
                     setOrder((prev: any) => {
-                        return [...prev, { title, price }];
+                        return [...prev, { title, price,table }];
                     });
                     setLabel("✅");
                 }}
