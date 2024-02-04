@@ -44,7 +44,7 @@ const items: Array<Order> = [
     }
 ]
 
-const Order = ({ table }: { table: string }) => {
+const Order = ({ table, kitchen }: { table: String, kitchen: String }) => {
     const [order, setOrder] = useState<Array<Order>>([]);
     const renderCart = () => {
         const total = order.reduce((acc, curr) => acc + Number(curr.price), 0)
@@ -73,6 +73,7 @@ const Order = ({ table }: { table: string }) => {
 
     return (
         <div className='p-4'>
+            <h2 className=" font-semibold text-xl text-center my-4">{kitchen}</h2>
             <div className="flex flex-row justify-between">
                 <h2 className='text-lg font-medium'>Table: {table}</h2>
                 <Drawer>
