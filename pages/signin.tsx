@@ -17,7 +17,7 @@ const SignIn = () => {
 
         try {
             await axios.post('/api/signin', { username, password });
-            router.push('/kitchen');
+            router.push('/kitchen?user=' + username);
         } catch (error) {
             console.error(error);
             if (error instanceof Error) {

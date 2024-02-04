@@ -5,6 +5,7 @@ export interface IOrder extends Document {
     title: string;
     price: number;
     user: IUser['_id'];
+    table: string;
 }
 
 const OrderSchema: Schema = new Schema({

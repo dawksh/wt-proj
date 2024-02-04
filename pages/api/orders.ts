@@ -46,18 +46,17 @@ export default async function handler(
     case "GET":
       try {
         // Find the user
-        const userId = "65b12e7bec15d121f7d6fa4d";
+        const username = req.query.username;
         // Get the user's orders
-        const orders = await Order.find({ user: userId }).exec();
+        const orders = await Order.find({ username }).exec();
         // Map _id to id for each order
         const ordersWithId = orders.map((order) => ({
           id: order._id.toString(),
           title: order.title,
           price: order.price,
           user: order.user,
-          // Include other properties here
+          table: order.table
         }));
-        // console.log(ordersWithId)
         res.status(200).json({ success: true, data: ordersWithId });
       } catch (error) {
         res.status(400).json({
