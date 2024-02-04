@@ -4,6 +4,7 @@ export type Order = {
     price: number,
     image?: string,
     table: string,
+    id?: string,
 }
 
 

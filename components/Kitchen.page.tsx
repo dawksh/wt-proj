@@ -1,7 +1,8 @@
 import React,{useEffect,useState} from "react";
 import KitchenOrder from "./KitchenOrder.component";
 import {  Order } from "@/lib/types";
-
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 interface ResponseData {
     success: boolean;
     data: Order[];
@@ -27,10 +28,9 @@ const Kitchen = () => {
     // console.log("orders", orders);
     return (
         <div className="flex items-center justify-between p-8 flex-col">
+            <ToastContainer />
             <h1 className="text-2xl">Kitchen</h1>
-            
-                return <KitchenOrder  order={orders} />;
-            
+                <KitchenOrder order={orders} />
         </div>
     );
 };

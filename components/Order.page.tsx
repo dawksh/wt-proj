@@ -20,21 +20,21 @@ import Item from "./Item.component"
 import { Order } from "@/lib/types"
 import { useState } from "react"
 import axios from "axios"
-import { toast } from "react-toastify"
-import { useEffect } from "react"
+import { ToastContainer, toast } from "react-toastify"
+import 'react-toastify/dist/ReactToastify.css';
 
 const items: Array<Order> = [
     {
         title: 'Chicken',
         price: 100,
         image: "https://i.imgur.com/pUWQRu8.jpeg",
-        table: "1"
+        table: "1",
     },
     {
         title: "Prawns",
         price: 200,
         image: "https://i.imgur.com/mpsDXKd.jpeg",
-        table: "1"
+        table: "1",
     },
     {
         title: "Pasta",
@@ -44,7 +44,7 @@ const items: Array<Order> = [
     }
 ]
 
-const Order = ({ table, kitchen }: { table: String, kitchen: String }) => {
+const Order = ({ table, kitchen }: { table: string, kitchen: string }) => {
     const [order, setOrder] = useState<Array<Order>>([]);
     const renderCart = () => {
         const total = order.reduce((acc, curr) => acc + Number(curr.price), 0)
@@ -62,17 +62,19 @@ const Order = ({ table, kitchen }: { table: String, kitchen: String }) => {
 
     const handleConfirm = async () => {
         try {
-            console.log(order);
-          await axios.post('/api/orders', order); // Replace with your actual API endpoint
+            const orderWithKitchen = order.map(item => ({ ...item, kitchen }));
+           
+          await axios.post('/api/orders', orderWithKitchen); // Replace with your actual API endpoint
           toast.success('Order confirmed');
         } catch (error) {
           console.error(error);
-          toast.error('An error occurred while confirming the order');
+          toast.error('Failed to confirm order');
         }
       };
 
     return (
         <div className='p-4'>
+            <ToastContainer />
             <h2 className=" font-semibold text-xl text-center my-4">{kitchen}</h2>
             <div className="flex flex-row justify-between">
                 <h2 className='text-lg font-medium'>Table: {table}</h2>
