@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import KitchenOrder from "./KitchenOrder.component";
 import { Order } from "@/lib/types";
 import { ToastContainer } from "react-toastify";
-import { useRouter } from "next/router";
 import 'react-toastify/dist/ReactToastify.css';
 
 interface ResponseData {

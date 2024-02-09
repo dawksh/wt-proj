@@ -1,7 +1,6 @@
 import { Separator } from "@/components/ui/separator";
 import Link from "next/link";
 import React from 'react';
-import image from './bg1.jpg'
 
 export default function SeparatorDemo() {
     const backgroundImageStyle = {
