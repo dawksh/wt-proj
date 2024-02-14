@@ -15,7 +15,7 @@ const Kitchen = ({ username }: { username: string }) => {
     useEffect(() => {
         const fetchOrders = async () => {
             try {
-                const response = await fetch('http://localhost:3000/api/orders?user=' + username);
+                const response = await fetch('/api/orders?user=' + username);
                 const data: ResponseData = await response.json();
                 setOrders(data.data);
 
@@ -25,7 +25,7 @@ const Kitchen = ({ username }: { username: string }) => {
         };
 
         fetchOrders();
-    }, []);
+    }, [username]);
 
     return (
         <div className="flex items-center justify-between p-8 flex-col">

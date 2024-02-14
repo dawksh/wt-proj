@@ -15,12 +15,11 @@ export default async function handler(
     case "POST":
       try {
         const order = req.body;
+
         // Find the user
-        console.log("kitchen = ", order[0].kitchen);
         const user = await User.findOne({
           username: order[0].kitchen,
         }).exec();
-        console.log("user", user);
         if (!user) {
           return res
             .status(400)
@@ -31,7 +30,6 @@ export default async function handler(
         const createdOrders = await Order.insertMany(
           order.map((order: IOrder) => ({ ...order, user: user._id }))
         );
-
         res.status(201).json({ success: true, data: createdOrders });
       } catch (error) {
         res.status(400).json({
@@ -45,17 +43,14 @@ export default async function handler(
       break;
     case "GET":
       try {
-        // Find the user
         const username = req.query.username;
-        // Get the user's orders
         const orders = await Order.find({ username }).exec();
-        // Map _id to id for each order
         const ordersWithId = orders.map((order) => ({
           id: order._id.toString(),
           title: order.title,
           price: order.price,
           user: order.user,
-          table: order.table
+          table: order.table,
         }));
         res.status(200).json({ success: true, data: ordersWithId });
       } catch (error) {
