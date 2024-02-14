@@ -23,8 +23,8 @@ const Item = ({
         }, 2000);
     }, [label]);
     return (
-        <div className="w-full my-8 flex items-center justify-center border-2 border-slate-700 flex-col rounded-md">
-            <Image src={image} alt={`${title} Image`} width={200} height={200} className="rounded-sm mt-8"></Image>
+        <div className="w-full my-8 flex items-center justify-center border-2 border-slate-700 flex-col rounded-md mx-4">
+            <Image src={image} alt={`${title} Image`} width={200} height={200} className="rounded-sm mt-8 mx-4"></Image>
             <span className=" font-semibold mt-4">
                 {title}
             </span>
@@ -33,7 +33,7 @@ const Item = ({
                 className="my-2 mb-8 w-32"
                 onClick={(e) => {
                     setOrder((prev: any) => {
-                        return [...prev, { title, price,table }];
+                        return [...prev, { title, price, table }];
                     });
                     setLabel("✅");
                 }}

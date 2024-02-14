@@ -63,14 +63,14 @@ const Order = ({ table, kitchen }: { table: string, kitchen: string }) => {
     const handleConfirm = async () => {
         try {
             const orderWithKitchen = order.map(item => ({ ...item, kitchen }));
-           
-          await axios.post('/api/orders', orderWithKitchen); // Replace with your actual API endpoint
-          toast.success('Order confirmed');
+
+            await axios.post('/api/orders', orderWithKitchen); // Replace with your actual API endpoint
+            toast.success('Order confirmed');
         } catch (error) {
-          console.error(error);
-          toast.error('Failed to confirm order');
+            console.error(error);
+            toast.error('Failed to confirm order');
         }
-      };
+    };
 
     return (
         <div className='p-4'>
@@ -96,19 +96,11 @@ const Order = ({ table, kitchen }: { table: string, kitchen: string }) => {
                     </DrawerContent>
                 </Drawer>
             </div>
-            <div>
-                <Carousel>
-                    <CarouselContent>
-                        {items.map((item, index) => (
-                            <CarouselItem key={index}>
-                                <Item title={item.title} price={item.price} image={item.image || ""} table={table} setOrder={setOrder} />
-                            </CarouselItem>
-                        )
-                        )}
-                    </CarouselContent>
-                    <CarouselNext />
-                    <CarouselPrevious />
-                </Carousel>
+            <div className="flex flex-col lg:flex-row">
+                {items.map((item, index) => (
+                    <Item key={index} title={item.title} price={item.price} image={item.image || ""} table={table} setOrder={setOrder} />
+                )
+                )}
 
             </div>
         </div>
